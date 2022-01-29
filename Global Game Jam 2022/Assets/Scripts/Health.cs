@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     private float iFrameTimer;
     private AudioSource audioSource;
     public AudioClip takeDamageSound;
+    public AudioClip healthPickupSound;
     public AudioClip deathSound;
     private bool isDead = false;
 
@@ -70,8 +71,16 @@ public class Health : MonoBehaviour
         {
             iFrameTimer = iFrameCooldown;
             currentHealth -= damage_;
-            audioSource.clip = takeDamageSound;
-            audioSource.Play();
+            if (damage_ > 0)
+            {
+                audioSource.clip = takeDamageSound;
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.clip = healthPickupSound;
+                audioSource.Play();
+            }
         }
     }
 
