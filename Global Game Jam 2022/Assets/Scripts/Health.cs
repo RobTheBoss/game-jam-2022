@@ -15,10 +15,16 @@ public class Health : MonoBehaviour
     public float iFrameCooldown;
     public Animator anim;
     private float iFrameTimer;
+    private AudioSource audioSource;
+    public AudioClip takeDamageSound;
+    public AudioClip deathSound;
+    private bool isDead = false;
+
 
     private void Start()
     {
-        currentHealth = totalHealth;   
+        currentHealth = totalHealth;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -50,13 +56,11 @@ public class Health : MonoBehaviour
             }
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
-            
-            Destroy(playerSprite);
-            TrailRenderer playerTrail = GetComponent<TrailRenderer>();
-            Destroy(playerTrail);
-            Time.timeScale = 0;
+            isDead = true;
+            //StartCoroutine(DeathSoundDelay());
+
         }
     }
 
@@ -66,6 +70,19 @@ public class Health : MonoBehaviour
         {
             iFrameTimer = iFrameCooldown;
             currentHealth -= damage_;
+            audioSource.clip = takeDamageSound;
+            audioSource.Play();
         }
+    }
+
+    IEnumerator DeathSoundDelay()
+    {
+        audioSource.clip = deathSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        Destroy(playerSprite);
+        TrailRenderer playerTrail = GetComponent<TrailRenderer>();
+        Destroy(playerTrail);
+        Time.timeScale = 0;
     }
 }
