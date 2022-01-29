@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public Sprite emptyHeart;
     public GameObject playerSprite;
     public float iFrameCooldown;
+    public Animator anim;
     private float iFrameTimer;
 
     private void Start()
@@ -28,6 +29,11 @@ public class Health : MonoBehaviour
         if (iFrameTimer > 0)
         {
             iFrameTimer -= Time.deltaTime;
+            anim.SetBool("hasIFrames", true);
+        }
+        else
+        {
+            anim.SetBool("hasIFrames", false);
         }
 
         for (int i = 0; i < hearts.Count; i++)
