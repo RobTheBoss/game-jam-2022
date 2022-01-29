@@ -29,11 +29,14 @@ public class Health : MonoBehaviour
         if (iFrameTimer > 0)
         {
             iFrameTimer -= Time.deltaTime;
-            anim.SetBool("hasIFrames", true);
+
+            if (!anim.GetBool("hasIFrames"))
+                anim.SetBool("hasIFrames", true);
         }
         else
         {
-            anim.SetBool("hasIFrames", false);
+            if (anim.GetBool("hasIFrames"))
+                anim.SetBool("hasIFrames", false);
         }
 
         for (int i = 0; i < hearts.Count; i++)

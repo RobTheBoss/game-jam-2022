@@ -1428,7 +1428,7 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 75d0770c4bb762040b3620beacab4dc7, type: 3}
   emptyHeart: {fileID: 21300000, guid: f601e1068677f474491cca9c8f747c7e, type: 3}
   playerSprite: {fileID: 1881284317}
-  iFrameCooldown: 1
+  iFrameCooldown: 1.3
   anim: {fileID: 1881284324}
 --- !u!96 &1881284323
 TrailRenderer:
