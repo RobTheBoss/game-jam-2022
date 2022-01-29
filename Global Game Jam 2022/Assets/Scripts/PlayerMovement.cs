@@ -131,11 +131,13 @@ public class PlayerMovement : MonoBehaviour
         //Flips sprite depending on direction moving
         if (Mathf.Sign(rb.velocity.x) == 1 && rb.velocity.x != 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0); //face right
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            //transform.rotation = Quaternion.Euler(0, 0, 0); //face right
         }
         else if (Mathf.Sign(rb.velocity.x) == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0); //face left
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            //transform.rotation = Quaternion.Euler(0, 180, 0); //face left
         }
     }
 

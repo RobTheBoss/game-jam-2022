@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public GameObject playerSprite;
+    public float iFrameCooldown;
+    private float iFrameTimer;
 
     private void Start()
     {
@@ -22,6 +24,11 @@ public class Health : MonoBehaviour
     {
         if (currentHealth > totalHealth)
             currentHealth = totalHealth;
+
+        if (iFrameTimer > 0)
+        {
+            iFrameTimer -= Time.deltaTime;
+        }
 
         for (int i = 0; i < hearts.Count; i++)
         {
@@ -41,6 +48,15 @@ public class Health : MonoBehaviour
             TrailRenderer playerTrail = GetComponent<TrailRenderer>();
             Destroy(playerTrail);
             Time.timeScale = 0;
+        }
+    }
+
+    public void TakeDamage(int damage_)
+    {
+        if (iFrameTimer <= 0)
+        {
+            iFrameTimer = iFrameCooldown;
+            currentHealth -= damage_;
         }
     }
 }

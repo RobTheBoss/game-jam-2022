@@ -22,7 +22,7 @@ public class LargeProjectile : MonoBehaviour
     {
         rb.velocity = Vector2.down * speed;
 
-        if (transform.position.y <= -6)
+        if (transform.position.y <= -8)
         {
             Destroy(gameObject);
         }
@@ -32,7 +32,7 @@ public class LargeProjectile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Health>().currentHealth -= damage;
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
