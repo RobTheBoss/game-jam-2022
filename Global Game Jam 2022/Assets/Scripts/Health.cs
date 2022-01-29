@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
-            //StartCoroutine(DeathSoundDelay());
+            StartCoroutine(DeathSoundDelay());
 
         }
     }
