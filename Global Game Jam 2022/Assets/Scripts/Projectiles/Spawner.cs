@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < amount_; i++)
         {
-            Vector2 spawnPosition = new Vector2(Random.Range(xMin, xMax + 1), 19f);
+            Vector2 spawnPosition = new Vector2(Mathf.Floor(Random.Range(xMin, xMax + 1)), 19f);
             Instantiate(rainProjectile, spawnPosition, transform.rotation);
         }
     }
