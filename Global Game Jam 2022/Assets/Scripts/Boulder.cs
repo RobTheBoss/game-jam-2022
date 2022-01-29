@@ -7,6 +7,7 @@ public class Boulder : MonoBehaviour
     private Rigidbody2D rb;
     public float rollSpeed;
     public int damage;
+    public float despawnHeight;
     private bool spawnedOnRight;
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class Boulder : MonoBehaviour
         else if (spawnedOnRight)
             rb.velocity = new Vector2(-rollSpeed, rb.velocity.y);
 
-        if (transform.position.y < -2)
+        if (transform.position.y < despawnHeight)
             Destroy(gameObject);
     }
 

@@ -151,4 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   afterImage: {fileID: 5560902541645962691, guid: 7abb36522ede75a43a899fe0a128620a, type: 3}
   spawnCooldown: 0
-  lifeTime: 0.3
+  lifeTime: 0.2
