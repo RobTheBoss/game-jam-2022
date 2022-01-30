@@ -68,20 +68,19 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage_)
     {
-        if (iFrameTimer <= 0)
+        if (iFrameTimer <= 0 && damage_ > 0)
         {
-            iFrameTimer = iFrameCooldown;
             currentHealth -= damage_;
-            if (damage_ > 0)
-            {
-                audioSource.clip = takeDamageSound;
-                audioSource.Play();
-            }
-            else
-            {
-                audioSource.clip = healthPickupSound;
-                audioSource.Play();
-            }
+           
+            audioSource.clip = takeDamageSound;
+            audioSource.Play();
+            iFrameTimer = iFrameCooldown;
+        }
+        else if (damage_ <= 0)
+        {
+            currentHealth -= damage_;
+            audioSource.clip = healthPickupSound;
+            audioSource.Play();
         }
     }
 

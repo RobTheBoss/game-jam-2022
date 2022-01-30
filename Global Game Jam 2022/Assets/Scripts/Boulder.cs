@@ -8,7 +8,6 @@ public class Boulder : MonoBehaviour
     public float rollSpeed;
     public int damage;
     public float despawnHeight;
-    public float despawnTime = 5.0f;
     private bool spawnedOnRight;
 
     // Start is called before the first frame update
@@ -20,7 +19,6 @@ public class Boulder : MonoBehaviour
             spawnedOnRight = true;
         else
             spawnedOnRight = false;
-        Destroy(gameObject, despawnTime); // added to prevent boulder from being an insta kill
     }
 
     // Update is called once per frame
@@ -32,7 +30,10 @@ public class Boulder : MonoBehaviour
             rb.velocity = new Vector2(-rollSpeed, rb.velocity.y);
 
         if (transform.position.y < despawnHeight)
-            Destroy(gameObject);                        
+        {
+            Destroy(gameObject);
+            Debug.Log("bye");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

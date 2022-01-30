@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public Text score;
     public float scoreCooldown;
     private float scoreTimer;
-    private int points;
+    [HideInInspector] public static int points;
 
     // Start is called before the first frame update
     void Start()

@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public int xMin, xMax;
     public float spawnCooldown;
     public int amountToSpawn;
+    public float spawnHeight;
     private float lastSpawnTime = 0;
 
     void Update()
@@ -23,7 +24,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < amount_; i++)
         {
-            Vector2 spawnPosition = new Vector2(Mathf.Floor(Random.Range(xMin, xMax + 1)), 19f);
+            Vector2 spawnPosition = new Vector2(Mathf.Floor(Random.Range(xMin, xMax + 1)), spawnHeight);
             Instantiate(rainProjectile, spawnPosition, transform.rotation);
         }
     }
