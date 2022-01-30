@@ -32,7 +32,6 @@ public class Boulder : MonoBehaviour
         if (transform.position.y < despawnHeight)
         {
             Destroy(gameObject);
-            Debug.Log("bye");
         }
     }
 

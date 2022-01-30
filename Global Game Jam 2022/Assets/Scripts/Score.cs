@@ -23,7 +23,7 @@ public class Score : MonoBehaviour
         {
             scoreTimer = scoreCooldown;
             points += 1;
-            score.text = "Score " + points.ToString();
+            score.text = "Score  " + points.ToString();
         }
         else
         {

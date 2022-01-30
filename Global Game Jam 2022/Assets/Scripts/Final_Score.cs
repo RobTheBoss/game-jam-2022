@@ -11,6 +11,7 @@ public class Final_Score : MonoBehaviour
     void Start()
     {
         score.text = "Final score is: " + Score.points;
+        Score.points = 0;
     }
 
     // Update is called once per frame
