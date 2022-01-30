@@ -93,6 +93,6 @@ public class Health : MonoBehaviour
         Destroy(playerSprite);
         TrailRenderer playerTrail = GetComponent<TrailRenderer>();
         Destroy(playerTrail);
-        SceneManager.LoadScene("MenuScene"); /// Change this to GameOverScene once we know why it doesn't work
+        SceneManager.LoadScene("GameOverScene"); /// Change this to GameOverScene once we know why it doesn't work
     }
 }
